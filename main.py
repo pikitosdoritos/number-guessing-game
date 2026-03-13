@@ -14,9 +14,5 @@ while running:
         print(f"Congratulations! You guessed the number: {guess_number} in {attempts} attempts.")
         running = False
     else:
-        if guess < guess_number:
-            print("Too low! Try again.")
-            attempts += 1
-        else:
-            print("Too high! Try again.")
-            attempts += 1
+        print(f"Too {"low" if guess < guess_number else "high"}! Try again.")
+        print(f"Attempts: {attempts}\n")
