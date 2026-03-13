@@ -44,7 +44,7 @@ def print_record():
     print("-----------------")
 
     for i, r in enumerate(records[:10], start=1):
-        print(f"{i}. {r['name']} - {r['score']}")
+        print(f"{i}. {r['name']} - {r['attempts']} attempts - {r['level']} level")
 
 def select_level_and_name():
     while True:
@@ -104,4 +104,3 @@ while running:
         low = guess if low < guess < guess_number else low
         high = guess if guess_number < guess < high else high        
         
-    print(f"The number is between {low} and {high}.") if attempts == 3 else None
