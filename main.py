@@ -1,4 +1,6 @@
 import random
+import json
+import os
 
 guess_number = random.randint(1, 100)
 
@@ -6,10 +8,33 @@ low = 1
 high = 100
 
 attempts = 0
+max_attempts = 0
 
 running = True
 
-while running:
+def select_level():
+    while True:
+        select_level = input("Select a level: 'easy', 'medium', 'hard': ")
+            
+        if select_level.lower() == "easy":
+            max_attempts = 10
+            break
+        elif select_level.lower() == "medium":
+            max_attempts = 7
+            break
+        elif select_level.lower() == "hard":
+            max_attempts = 5
+            break
+        else:
+            print("Invalid level. Please choose 'easy', 'medium', or 'hard'.")
+            
+    print(f"You have {max_attempts} attempts to guess the number.")
+            
+    return max_attempts
+    
+max_attempts = select_level()
+  
+while running:   
     user_input = (input("Guess a number between (1 and 100) and 'hint' to take a hint': "))
     attempts += 1
     
@@ -26,6 +51,11 @@ while running:
     if guess == guess_number:
         print(f"Congratulations! You guessed the number: {guess_number} in {attempts} attempts.")
         running = False
+    
+    elif attempts == max_attempts:
+        print(f"Sorry, you've run out of attempts. The number was {guess_number}.")
+        running = False
+        
     else:
         print(f"Too {"low" if guess < guess_number else "high"}! Try again.")
         print(f"Attempts: {attempts}\n")
