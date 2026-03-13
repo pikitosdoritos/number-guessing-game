@@ -91,6 +91,7 @@ while running:
     if guess == guess_number:
         print(f"Congratulations! You guessed the number: {guess_number} in {attempts} attempts.")
         save_record(name, attempts, selected_level)
+        print_record()
         running = False
     
     elif attempts == max_attempts:
