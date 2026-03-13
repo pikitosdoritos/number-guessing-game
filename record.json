@@ -3,5 +3,10 @@
         "name": "Nikita",
         "attempts": 4,
         "level": "hard"
+    },
+    {
+        "name": "Nikita",
+        "attempts": 7,
+        "level": "easy"
     }
 ]
